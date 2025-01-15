@@ -10,6 +10,8 @@ import SignUp from "../pages/SignUp/SignUp";
 import CampDetails from "../pages/CampDetails/CampDetails";
 import Dashboard from "../layouts/Dashboard";
 import Profile from "../pages/Dashboard/Participant/Profile";
+import PrivateRoute from "./PrivateRoute";
+import MyRegisterCamp from "../pages/Dashboard/Participant/MyRegisterCamp";
   
   const router = createBrowserRouter([
     {
@@ -40,7 +42,11 @@ import Profile from "../pages/Dashboard/Participant/Profile";
       children: [
         {
           path: 'profile',
-          element: <Profile></Profile>
+          element: <PrivateRoute><Profile></Profile></PrivateRoute>,
+        },
+        {
+          path: 'registerCamp',
+          element: <PrivateRoute><MyRegisterCamp></MyRegisterCamp></PrivateRoute>,
         }
       ]
     }

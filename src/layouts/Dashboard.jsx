@@ -12,9 +12,9 @@ const Dashboard = () => {
                     <li><NavLink to = '/dashboard/profile'><FaUser className="mr-2 text-myAccent"></FaUser> My Profile</NavLink></li>
                     <li><NavLink to = '/dashboard/registerCamp'><FaRegistered className="mr-2 text-myAccent"></FaRegistered> My Register Camps</NavLink></li>
                     <li><NavLink to = '/dashboard/history'><FaPaypal className="mr-2 text-myAccent"/> My Profile</NavLink></li>
-                    <li><NavLink to = '/dashboard/anatics'><FaGrav className="mr-2 text-myAccent"/> My Profile</NavLink></li>
+                    <li><NavLink to = '/dashboard/anatics'><FaGrav className="mr-2 text-myAccent"/> My Amatic</NavLink></li>
                     {/* admin route  */}
-                    <li><NavLink to = '/dashboard/adminProfile'><FaUser className="mr-2 text-myAccent"/> My Profile</NavLink></li>
+                    <li><NavLink to = '/dashboard/adminProfile'><FaUser className="mr-2 text-myAccent"/> Organizer Profile</NavLink></li>
                     <li><NavLink to = '/dashboard/addCamp'><FaKitMedical className="mr-2 text-myAccent"/> Add A Camp</NavLink></li>
                     <li><NavLink to = '/dashboard/manageCamp'><FaMandalorian className="mr-2 text-myAccent"/>Manage Camps</NavLink></li>
                     <li><NavLink to = '/dashboard/manageRegisterCamp'><FaStackpath className="mr-2 text-myAccent"/>Manage Register Camps</NavLink></li>
@@ -25,7 +25,7 @@ const Dashboard = () => {
                 </ul>
 
             </div>
-            <div className="flex-1 p-10">
+            <div className="flex-1">
                 <Outlet></Outlet>
 
             </div>

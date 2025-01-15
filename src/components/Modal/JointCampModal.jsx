@@ -29,7 +29,7 @@ const JointCampModal = ({ closeModal, isOpen, camp, refetch }) => {
     const contact = form.contact.value 
     const participant = {name:user?.displayName, email: user?.email, image: user?.photoURL}
     const participantInfo = {campName, campFees,  gender, age, phone, contact, participant, campId: _id, paymentStatus: 'Unpaid', confirmStatus: 'Pending'}
-    console.log(participantInfo);
+    // console.log(participantInfo);
     await axiosSecure.post('/participants', participantInfo)
     await axiosSecure.patch(`/update-count/${_id}`, {status: 'increase'})
     toast.success('Join Camp Successfully')
