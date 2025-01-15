@@ -1,0 +1,63 @@
+[
+    {
+      "campName": "Healthy Life Camp",
+      "image": "https://i.ibb.co.com/6RrhxqY/image-1.jpg",
+      "campFees": 50,
+      "description": "A wellness camp focusing on mental and physical health.",
+      "dateTime": "2025-02-10T10:00:00",
+      "location": "Central Park, New York",
+      "professional": "Dr. John Smith",
+      "participantCount": 0
+    },
+    {
+      "campName": "Fitness Booster Camp",
+      "image": "https://i.ibb.co.com/QXv81WB/image-2.jpg",
+      "campFees": 40,
+      "description": "Boost your fitness with guided exercises and expert tips.",
+      "dateTime": "2025-03-15T08:00:00",
+      "location": "Greenwood Community Center, California",
+      "professional": "Coach Emily Brown",
+      "participantCount": 0
+    },
+    {
+      "campName": "Nutrition Awareness Camp",
+      "image": "https://i.ibb.co.com/0t3dBFv/image-3.jpg",
+      "campFees": 30,
+      "description": "Learn about healthy eating and balanced diets.",
+      "dateTime": "2025-04-05T09:30:00",
+      "location": "Health Institute, Texas",
+      "professional": "Dietitian Sarah Lee",
+      "participantCount": 0
+    },
+    {
+      "campName": "Stress Management Camp",
+      "image": "https://i.ibb.co.com/qkQtQmZ/image-4.jpg",
+      "campFees": 45,
+      "description": "Discover effective ways to manage stress and anxiety.",
+      "dateTime": "2025-05-20T14:00:00",
+      "location": "Harmony Hall, Florida",
+      "professional": "Psychologist Mark Johnson",
+      "participantCount": 0
+    },
+    {
+      "campName": "Yoga Retreat Camp",
+      "image": "https://i.ibb.co.com/6RrhxqY/image-1.jpg",
+      "campFees": 60,
+      "description": "Reconnect with your body and mind through yoga.",
+      "dateTime": "2025-06-12T07:00:00",
+      "location": "Tranquil Resort, Colorado",
+      "professional": "Yogi Amanda Green",
+      "participantCount": 0
+    },
+    {
+      "campName": "Child Health Awareness Camp",
+      "image": "https://i.ibb.co.com/nwjP3NG/image-6.jpg",
+      "campFees": 25,
+      "description": "Focus on children's health with expert pediatric advice.",
+      "dateTime": "2025-07-25T10:00:00",
+      "location": "City Auditorium, Illinois",
+      "professional": "Dr. Lucy Harper",
+      "participantCount": 0
+    }
+  ]
+  
