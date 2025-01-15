@@ -1,11 +1,32 @@
 import { useState } from "react";
 import DeleteModal from "../../../components/Modal/DeleteModal";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import PaymentModal from "../../../components/Modal/PaymentModal";
 
 
-const ParticipantRow = ({camp}) => {
-  const  {campName, campFees, participant, campId, paymentStatus, confirmStatus} = camp || {}
+const ParticipantRow = ({camp, refetch}) => {
+    const axiosSecure = useAxiosSecure()
+  const  {campName, campFees, participant, campId, paymentStatus, confirmStatus, _id} = camp || {}
     let [isOpen, setIsOpen] = useState(false)
+    let [isPayment, setIsPayment] = useState(false)
   const closeModal = () => setIsOpen(false)
+  const paymentClose = () => setIsPayment(false)
+  const handleDelete = async() => {
+  try{
+    await axiosSecure.delete(`/participants/${_id}`)
+    await axiosSecure.patch(`/update-count/${campId}`, {status: 'decrease'})
+    toast.success('Deleted Successful')
+    refetch()
+
+  }
+  catch(error){
+    toast.error(error.response.message)
+  }
+  finally{
+    closeModal()
+  }
+  }
     return (
         <tr>
         <td className='px-5 pb-5 border-b border-gray-200 bg-white text-sm'>
@@ -18,8 +39,8 @@ const ParticipantRow = ({camp}) => {
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>{participant?.name}</p>
         </td>
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <p className='text-gray-900 whitespace-no-wrap'>{paymentStatus}</p>
+        <td onClick={() => setIsPayment(true)}  className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+          <p className='text-gray-900 whitespace-no-wrap cursor-pointer'>{paymentStatus === 'Unpaid'?'Pay': 'Paid'}</p>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>{confirmStatus}</p>
@@ -32,8 +53,8 @@ const ParticipantRow = ({camp}) => {
             <span className='absolute cursor-pointer inset-0 bg-red-200 opacity-50 rounded-full'></span>
             <span className='relative cursor-pointer'>Cancel</span>
           </button>
-  
-          <DeleteModal  isOpen={isOpen} closeModal={closeModal} />
+        <PaymentModal camp = {camp} refetch = {refetch} campFees = {campFees} isOpen={isPayment} closeModal={paymentClose}></PaymentModal>
+          <DeleteModal handleDelete={handleDelete}  isOpen={isOpen} closeModal={closeModal} />
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>status</p>

@@ -9,8 +9,10 @@ import { Fragment } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const JointCampModal = ({ closeModal, isOpen, camp, refetch }) => {
     const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
     const {user} = useAuth()
   const {
     professional,
@@ -34,6 +36,7 @@ const JointCampModal = ({ closeModal, isOpen, camp, refetch }) => {
     await axiosSecure.patch(`/update-count/${_id}`, {status: 'increase'})
     toast.success('Join Camp Successfully')
     refetch()
+    navigate('/dashboard/registerCamp')
 
 
    }

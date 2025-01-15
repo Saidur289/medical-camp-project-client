@@ -12,6 +12,7 @@ import Dashboard from "../layouts/Dashboard";
 import Profile from "../pages/Dashboard/Participant/Profile";
 import PrivateRoute from "./PrivateRoute";
 import MyRegisterCamp from "../pages/Dashboard/Participant/MyRegisterCamp";
+import PaymentHistory from "../pages/Dashboard/Participant/PaymentHistory";
   
   const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ import MyRegisterCamp from "../pages/Dashboard/Participant/MyRegisterCamp";
         {
           path: 'registerCamp',
           element: <PrivateRoute><MyRegisterCamp></MyRegisterCamp></PrivateRoute>,
+        },
+        {
+          path: 'history',
+          element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
         }
       ]
     }

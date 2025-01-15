@@ -16,7 +16,7 @@ const MyRegisterCamp = () => {
     })
     console.log(camps);
     return (
-        <div className="bg-[#eef1fd]">
+        <div className="bg-[#eef1fd] md:min-h-screen">
             <h1 className="text-primary text-3xl text-center py-3"><span>Hi, Welcome To Your Register Camp</span></h1>
             <div className='px-4 sm:px-8'>
         <div className='py-8'>
@@ -72,7 +72,7 @@ const MyRegisterCamp = () => {
                   </tr>
                 </thead>
                 <tbody>
-                    {camps.map((camp) =>  <ParticipantRow key={camp._id} camp = {camp}></ParticipantRow>)}
+                    {camps.map((camp) =>  <ParticipantRow key={camp._id} camp = {camp} refetch={refetch}></ParticipantRow>)}
               
                 </tbody>
               </table>

@@ -11,7 +11,7 @@ const Dashboard = () => {
                     {/* participant route */}
                     <li><NavLink to = '/dashboard/profile'><FaUser className="mr-2 text-myAccent"></FaUser> My Profile</NavLink></li>
                     <li><NavLink to = '/dashboard/registerCamp'><FaRegistered className="mr-2 text-myAccent"></FaRegistered> My Register Camps</NavLink></li>
-                    <li><NavLink to = '/dashboard/history'><FaPaypal className="mr-2 text-myAccent"/> My Profile</NavLink></li>
+                    <li><NavLink to = '/dashboard/history'><FaPaypal className="mr-2 text-myAccent"/>Payment History</NavLink></li>
                     <li><NavLink to = '/dashboard/anatics'><FaGrav className="mr-2 text-myAccent"/> My Amatic</NavLink></li>
                     {/* admin route  */}
                     <li><NavLink to = '/dashboard/adminProfile'><FaUser className="mr-2 text-myAccent"/> Organizer Profile</NavLink></li>
