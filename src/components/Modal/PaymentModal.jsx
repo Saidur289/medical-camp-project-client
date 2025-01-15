@@ -52,7 +52,7 @@ const PaymentModal = ({closeModal, isOpen, campFees, camp, refetch}) => {
                          <hr className='mt-8 ' />
                         
                         <Elements stripe={stripePromise}>
-                        <CheckoutForm camp={camp} campFees = {campFees} closeModal={closeModal}></CheckoutForm>
+                        <CheckoutForm camp={camp} refetch={refetch} campFees = {campFees} closeModal={closeModal}></CheckoutForm>
                         </Elements>
               
                        </DialogPanel>

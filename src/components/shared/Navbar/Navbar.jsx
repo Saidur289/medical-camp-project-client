@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
+  
   const {user, handleSignOut} = useAuth()
   const handleLogOut = () => {
     handleSignOut()
@@ -81,6 +82,7 @@ const Navbar = () => {
               
               </a>
             </li>
+
             <li>
               <a>Dashboard</a>
             </li>

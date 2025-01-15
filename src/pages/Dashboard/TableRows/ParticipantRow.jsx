@@ -39,18 +39,19 @@ const ParticipantRow = ({camp, refetch}) => {
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>{participant?.name}</p>
         </td>
-        <td onClick={() => setIsPayment(true)}  className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <p className='text-gray-900 whitespace-no-wrap cursor-pointer'>{paymentStatus === 'Unpaid'?'Pay': 'Paid'}</p>
+        <td  onClick={() => setIsPayment(true)}  className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+          <button disabled = {paymentStatus === 'Paid'} className='text-gray-900 whitespace-no-wrap cursor-pointer'>{paymentStatus === 'Unpaid'?'Pay': 'Paid'}</button>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>{confirmStatus}</p>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <button
+            disabled = {paymentStatus === 'Paid'}
             onClick={() => setIsOpen(true)}
             className='relative disabled:cursor-not-allowed cursor-pointer inline-block px-3 py-1 font-semibold text-lime-900 leading-tight'
           >
-            <span className='absolute cursor-pointer inset-0 bg-red-200 opacity-50 rounded-full'></span>
+            <span className='absolute cursor-pointer inset-0 bg-myAccent opacity-50 rounded-full'></span>
             <span className='relative cursor-pointer'>Cancel</span>
           </button>
         <PaymentModal camp = {camp} refetch = {refetch} campFees = {campFees} isOpen={isPayment} closeModal={paymentClose}></PaymentModal>

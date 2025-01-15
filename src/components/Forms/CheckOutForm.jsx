@@ -11,8 +11,9 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 // eslint-disable-next-line react/prop-types
 const CheckoutForm = ({ refetch, closeModal, campFees, camp }) => {
+    const { _id,  ...newData } = camp;
+    console.log(newData);
   const [clientSecret, setClientSecret] = useState("");
-
   const navigate = useNavigate()
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
@@ -76,18 +77,25 @@ const CheckoutForm = ({ refetch, closeModal, campFees, camp }) => {
       payment_method: {
         card: card,
         billing_details: {
-          name: purchaseInfo?.customer?.name,
-          email: purchaseInfo?.customer?.email,
+          name: camp?.participant?.name,
+          email: camp?.participant?.email,
         },
       },
     });
     if (paymentIntent.status === "succeeded") {
       try {
-      const {res} = await axiosSecure.post(`/payments`, {...camp, transactionId : paymentIntent.id});
-      console.log(res.data);
+        const payment = {
+            email: camp?.participant?.email,
+            name: camp?.participant?.name,
+            transactionId : paymentIntent.id,
+            campName: camp?.campName,
+            campFees,
+            paymentStatus: 'Paid'
+        }
+      await axiosSecure.post(`/payments`, payment);
          await axiosSecure.patch(
           `/update-status/${camp._id}`,
-          {  status: "Paid" }
+          {  status: "Paid"  }
         );
         toast.success(`Your Transaction Id ${paymentIntent.id} payment successfully`);
         navigate("/dashboard/history");

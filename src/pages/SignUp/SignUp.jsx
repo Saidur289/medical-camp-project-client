@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import SocialLogin from "../../components/shared/SocialLogin/SocialLogin";
 import toast from "react-hot-toast";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const SignUp = () => {
-
+  const axiosPublic = useAxiosPublic()
   const { handleSignUp, updateUser } = useAuth();
   const navigate = useNavigate()
   const {
