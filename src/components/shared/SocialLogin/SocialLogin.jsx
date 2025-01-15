@@ -25,8 +25,7 @@ const SocialLogin = () => {
           
             
           })
-        //   navigate('/')
-        //   toast.success('User sign In successfully')
+        
         })
     }
     return (

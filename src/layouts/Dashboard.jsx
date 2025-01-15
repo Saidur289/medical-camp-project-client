@@ -6,12 +6,23 @@ import {
   FaStackpath,
   FaUser,
 } from "react-icons/fa";
-import { FaGrav, FaKitMedical } from "react-icons/fa6";
-import { NavLink, Outlet } from "react-router-dom";
+import { FaColonSign, FaGrav, FaKitMedical } from "react-icons/fa6";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import { useAuth } from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+ const {user, handleSignOut} = useAuth()
+ const navigate = useNavigate()
+ const handleLogOut = () => {
+  handleSignOut()
+  .then(() => {
+    toast.success('LogOut Successfully')
+    navigate('/')
+  })
+}
   return (
     <div className="md:flex">
       <div className="md:w-64 min-h-screen bg-secondary text-black">
@@ -79,6 +90,9 @@ const Dashboard = () => {
             <NavLink to="/">
               <FaHome className="mr-2 text-myAccent"></FaHome> Home
             </NavLink>
+          </li>
+          <li>
+            <button onClick={handleLogOut} ><FaColonSign className="mr-2 text-myAccent" /> LogOut</button>
           </li>
         </ul>
       </div>

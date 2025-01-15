@@ -2,10 +2,12 @@
 import { useAuth } from "../../../hooks/useAuth";
 import { Link, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
   
   const {user, handleSignOut} = useAuth()
+  const [isAdmin] = useAdmin()
   const handleLogOut = () => {
     handleSignOut()
     .then(() => {
@@ -82,10 +84,15 @@ const Navbar = () => {
               
               </a>
             </li>
-
-            <li>
-              <a>Dashboard</a>
+             {user && isAdmin && <li>
+              <NavLink to='/dashboard/manageCamp'>Dashboard</NavLink>
+            </li> }
+            {
+              user && !isAdmin && <li>
+              <NavLink to='/dashboard/registerCamp'>Dashboard</NavLink>
             </li>
+            }
+            
             <li onClick={handleLogOut}>
               <a>Logout</a>
             </li>
