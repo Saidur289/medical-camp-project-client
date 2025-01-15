@@ -16,6 +16,8 @@ import PaymentHistory from "../pages/Dashboard/Participant/PaymentHistory";
 import AdminRoute from "./AdminRoute";
 import ManageCamp from "../pages/Dashboard/Organizer/ManageCamp";
 import AddCamp from "../pages/Dashboard/Organizer/AddCamp";
+import UpdateCamp from "../pages/Dashboard/Organizer/UpdateCamp";
+import ManageRegisterCamp from "../pages/Dashboard/Organizer/ManageRegisterCamp";
   
   const router = createBrowserRouter([
     {
@@ -63,6 +65,14 @@ import AddCamp from "../pages/Dashboard/Organizer/AddCamp";
         {
           path: 'addCamp',
           element: <AdminRoute><AddCamp></AddCamp></AdminRoute>
+        },
+        {
+          path: 'updateCamp/:id',
+          element: <AdminRoute><UpdateCamp></UpdateCamp></AdminRoute>
+        },
+        {
+          path: 'manageRegisterCamp',
+          element: <AdminRoute><ManageRegisterCamp></ManageRegisterCamp></AdminRoute>
         }
       ]
     }

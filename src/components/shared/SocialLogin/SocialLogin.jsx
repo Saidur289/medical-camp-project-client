@@ -17,11 +17,16 @@ const SocialLogin = () => {
                 name: res?.user?.displayName,
                 email: res?.user?.email
             }
+           
           axiosPublic.post('/users', userInfo)
           .then((res) => {
-           toast.success('User sign In successfully')
             navigate('/')
+            toast.success('User sign In successfully')
+          
+            
           })
+        //   navigate('/')
+        //   toast.success('User sign In successfully')
         })
     }
     return (

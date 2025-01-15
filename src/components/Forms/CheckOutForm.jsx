@@ -90,7 +90,8 @@ const CheckoutForm = ({ refetch, closeModal, campFees, camp }) => {
             transactionId : paymentIntent.id,
             campName: camp?.campName,
             campFees,
-            paymentStatus: 'Paid'
+            paymentStatus: 'Paid',
+            confirmStatus: 'Pending',
         }
       await axiosSecure.post(`/payments`, payment);
          await axiosSecure.patch(

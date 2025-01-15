@@ -19,11 +19,14 @@ const JointCampModal = ({ closeModal, isOpen, camp, refetch }) => {
     campFees,
     location,
     campName,
-    _id
+    _id,
+    organizer
   } = camp || {};
   const handleSubmit = async(e) => {
+    
    try{
     e.preventDefault()
+    if(user?.email === organizer ) return toast.error('You cannot joint your campaigns')
     const form = e.target 
     const gender = form.category.value 
     const age = form.age.value 
