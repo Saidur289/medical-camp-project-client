@@ -21,7 +21,7 @@ const Navbar = () => {
             </li>
         
             <li className="uppercase">
-              <a>Available Camp</a>
+              <NavLink to = '/availableCamp'>Available Camp</NavLink>
             </li>
     </>
   return (

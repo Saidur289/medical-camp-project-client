@@ -20,6 +20,7 @@ import UpdateCamp from "../pages/Dashboard/Organizer/UpdateCamp";
 import ManageRegisterCamp from "../pages/Dashboard/Organizer/ManageRegisterCamp";
 import Analytics from "../pages/Dashboard/Participant/Analytics";
 import ErrorPage from "../components/shared/ErrorPage/ErrorPage";
+import AvailableCamp from "../pages/AvailableCamp/AvailableCamp";
   
   const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ import ErrorPage from "../components/shared/ErrorPage/ErrorPage";
         {
           path: '/campDetails/:id',
           element: <CampDetails></CampDetails>,
+        },
+        {
+          path: 'availableCamp',
+          element: <AvailableCamp></AvailableCamp>,
         }
       ]
     },
