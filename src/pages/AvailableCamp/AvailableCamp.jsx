@@ -1,13 +1,15 @@
 import { useState } from "react";
 import Card from "../../components/Home/Card";
 import useCamps from "../../hooks/useCamps";
+import Loading from "../../components/shared/Loading/Loading";
 
 const AvailableCamp = () => {
   const [filter, setFilter] = useState('')
   const [sort, setSort] = useState('')
   const [name, setName] = useState('')
   const [view, setView]= useState(false)
-  const [camps] = useCamps(name, filter, sort);
+  const [camps, isLoading] = useCamps(name, filter, sort);
+  if(isLoading) return <Loading></Loading>
   console.log(view);
   return (
     <div className="bg-[#eef1fd] py-10 overflow-x-hidden">
@@ -73,7 +75,7 @@ const AvailableCamp = () => {
             <button onClick={()=> setView(!view)} className="px-5 py-3 rounded-md bg-primary text-white">Change View</button>
         </div>
       </div>
-      <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 ${view && 'md:grid-cols-2 gap-4'}`}>
+      <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 ${view && 'lg:grid-cols-2 gap-4'}`}>
         {camps.map((camp, index) => (
           <Card key={index} camp={camp}></Card>
         ))}

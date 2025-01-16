@@ -7,9 +7,35 @@ import { format } from "date-fns";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
+import useCount from "../../../hooks/useCount";
 
 const ManageCamp = () => {
+  const [filter, setFilter] = useState('')
   const { user } = useAuth();
+  const [count] = useCount()
+  const [itemsPerPage, setItemsPerPage] = useState(10)
+  const [currentPage, setCurrentPage] = useState(0)
+  const numberOfPages = Math.ceil(count/itemsPerPage)
+  const pages = [...Array(numberOfPages).keys()]
+  const handlePerPage = e => {
+    const val = parseInt(e.target.value)
+    console.log(val);
+    setItemsPerPage(val)
+    setCurrentPage(0)
+  }
+  const handlePrevPage = () => {
+    if(currentPage>0){
+      setCurrentPage(currentPage - 1)
+    }
+  }
+  const handleNextPage = () => {
+    if(currentPage< pages.length - 1){
+      setCurrentPage(currentPage + 1)
+    }
+  }
+  // const [count, setCount]= useState(0)
+  console.log(count);
   console.log(user.email);
   const axiosSecure = useAxiosSecure();
   const {
@@ -17,9 +43,9 @@ const ManageCamp = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["camps", user?.email],
+    queryKey: ["camps", user?.email, currentPage, itemsPerPage, filter],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/camp`);
+      const res = await axiosSecure.get(`/camp?page=${currentPage}&size=${itemsPerPage}&filter=${filter}`);
       return res.data;
     },
   });
@@ -58,6 +84,23 @@ const ManageCamp = () => {
         <h1 className="text-3xl text-primary text-center py-3">
           Total Campaign {camps.length}
         </h1>
+        <div className="px-5">
+          <label className="input input-bordered flex items-center gap-2">
+            <input type="text" value={filter} onChange={(e) => setFilter(e.target.value)} className="grow"  placeholder= 'Search By Camp Name ' />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              className="h-4 w-4 opacity-70"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </label>
+        </div>
         <div className="overflow-x-auto w-full">
           <table className="table">
             {/* head */}
@@ -105,6 +148,18 @@ const ManageCamp = () => {
               )}
             </tbody>
           </table>
+           <div className="mb-10 mt-5 text-center">
+           <button className="bg-primary text-white btn btn-sm" onClick={handlePrevPage}>Prev</button>
+            {
+              pages.map((page, index)=> <button onClick={() => setCurrentPage(page)} className={currentPage === page? 'bg-myAccent text-primary btn mr-2 btn-sm': 'btn mr-2 btn-sm'} key={index}>{page}</button>)
+            }
+            <button className="bg-primary text-white btn btn-sm" onClick={handleNextPage}>Next</button>
+             <select className="select-bordered btn btn-sm" value={itemsPerPage} onChange={handlePerPage}>
+              <option value="10">10</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+             </select>
+           </div>
         </div>
       </div>
     </>
