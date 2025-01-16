@@ -66,7 +66,7 @@ const ParticipantRow = ({camp, refetch}) => {
           <FeedBackModal campName = {campName} closeModal = {closeModals} isOpen = {isOpens}></FeedBackModal>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <p onClick={() => setIsOpens(true)} className='text-gray-900 whitespace-no-wrap'>{paymentStatus === 'Paid'? 'Feedback': 'N/A'}</p>
+          <button disabled = {confirmStatus === 'Pending'} onClick={() => setIsOpens(true)}  className='text-gray-900 whitespace-no-wrap'>{paymentStatus === 'Paid'? 'Feedback': 'N/A'}</button>
         </td>
   
        

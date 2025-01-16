@@ -7,9 +7,13 @@ import {
   } from "@headlessui/react";
   import { Fragment } from "react";
   import { useAuth } from "../../hooks/useAuth";
+import toast from "react-hot-toast";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const FeedBackModal = ({closeModal, isOpen, campName}) => {
+    const axiosSecure = useAxiosSecure()
     const {user} = useAuth()
     const handleFeedback = async(e) => {
+      try{
         e.preventDefault()
         const form = e.target 
         const rating = parseInt(form.rating.value) 
@@ -18,6 +22,16 @@ const FeedBackModal = ({closeModal, isOpen, campName}) => {
         const userName = user?.displayName 
         const data = {rating, reviewText, profileImage, userName}
         console.log(data);
+        await axiosSecure.post('/feedback', data)
+        toast.success('Feedback Added Successfully')
+
+      }
+      catch(error){
+        toast.error(error.message)
+      }
+      finally{
+        closeModal()
+      }
 
     }
   return (
