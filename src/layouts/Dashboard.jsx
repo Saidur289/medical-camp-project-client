@@ -74,8 +74,8 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/anatics">
-                  <FaGrav className="mr-2 text-myAccent" /> My Amatic
+                <NavLink to="/dashboard/analytics">
+                  <FaGrav className="mr-2 text-myAccent" /> My Analytics
                 </NavLink>
               </li>
             </>

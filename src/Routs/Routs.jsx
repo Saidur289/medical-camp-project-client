@@ -18,11 +18,14 @@ import ManageCamp from "../pages/Dashboard/Organizer/ManageCamp";
 import AddCamp from "../pages/Dashboard/Organizer/AddCamp";
 import UpdateCamp from "../pages/Dashboard/Organizer/UpdateCamp";
 import ManageRegisterCamp from "../pages/Dashboard/Organizer/ManageRegisterCamp";
+import Analytics from "../pages/Dashboard/Participant/Analytics";
+import ErrorPage from "../components/shared/ErrorPage/ErrorPage";
   
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
@@ -45,6 +48,7 @@ import ManageRegisterCamp from "../pages/Dashboard/Organizer/ManageRegisterCamp"
     {
       path: 'dashboard',
       element: <Dashboard></Dashboard>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path: 'profile',
@@ -57,6 +61,10 @@ import ManageRegisterCamp from "../pages/Dashboard/Organizer/ManageRegisterCamp"
         {
           path: 'history',
           element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
+        },
+        {
+          path: 'analytics',
+          element: <PrivateRoute><Analytics></Analytics></PrivateRoute>,
         },
         {
           path: 'manageCamp',

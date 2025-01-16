@@ -20,7 +20,7 @@ const MyRegisterCamp = () => {
       return res.data;
     },
   });
-  console.log(camps);
+  // console.log(camps);
   return (
     <div className="bg-[#eef1fd] md:min-h-screen">
       <h1 className="text-primary text-3xl text-center py-3">
