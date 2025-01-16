@@ -6,6 +6,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ManageCamp = () => {
   const { user } = useAuth();
@@ -48,59 +49,65 @@ const ManageCamp = () => {
     });
   };
   return (
-    <div className="bg-[#eef1fd]  md:min-h-screen">
-      <h1 className="text-3xl text-primary text-center py-3">
-        Total Campaign {camps.length}
-      </h1>
-      <div className="overflow-x-auto w-full">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Camp Name</th>
-              <th>Camp Fees</th>
-              <th>Date & Time</th>
-              <th>Location</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            {camps.length === 0 ? (
-              <>
-                <td>You have no data</td>
-              </>
-            ) : (
-              camps.map((camp, index) => (
-                <tr key={index}>
-                  <th>{index + 1}</th>
-                  <td>{camp?.campName}</td>
-                  <td>{camp?.campFees}</td>
-                  <td>
-                    {format(new Date(camp?.dateTime), "MMM-dd-yyyy h:mm")}
-                  </td>
-                  <td>{camp?.location}</td>
-                  <td>
-                    <Link to={`/dashboard/updateCamp/${camp._id}`}>
-                      <button className="btn btn-xs">
-                        <FaEdit className="text-myAccent"></FaEdit>
+    <>
+    
+      <Helmet>
+          <title>Dashboard | Manage Camp</title>
+        </Helmet>
+      <div className="bg-[#eef1fd]  md:min-h-screen">
+        <h1 className="text-3xl text-primary text-center py-3">
+          Total Campaign {camps.length}
+        </h1>
+        <div className="overflow-x-auto w-full">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Camp Name</th>
+                <th>Camp Fees</th>
+                <th>Date & Time</th>
+                <th>Location</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* row 1 */}
+              {camps.length === 0 ? (
+                <>
+                  <td>You have no data</td>
+                </>
+              ) : (
+                camps.map((camp, index) => (
+                  <tr key={index}>
+                    <th>{index + 1}</th>
+                    <td>{camp?.campName}</td>
+                    <td>{camp?.campFees}</td>
+                    <td>
+                      {format(new Date(camp?.dateTime), "MMM-dd-yyyy h:mm")}
+                    </td>
+                    <td>{camp?.location}</td>
+                    <td>
+                      <Link to={`/dashboard/updateCamp/${camp._id}`}>
+                        <button className="btn btn-xs">
+                          <FaEdit className="text-myAccent"></FaEdit>
+                        </button>
+                      </Link>
+                      <button
+                        onClick={() => handleDelete(camp._id)}
+                        className="btn btn-xs"
+                      >
+                        <FaTrash className="text-red-500"></FaTrash>
                       </button>
-                    </Link>
-                    <button
-                      onClick={() => handleDelete(camp._id)}
-                      className="btn btn-xs"
-                    >
-                      <FaTrash className="text-red-500"></FaTrash>
-                    </button>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
