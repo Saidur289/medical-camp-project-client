@@ -25,11 +25,11 @@ const Navbar = () => {
             </li>
     </>
   return (
-   <div className="bg-[#eef1fd] container mx-auto">
+   <div className="bg-[#eef1fd] container mx-auto border-b-2">
      <div className="navbar ">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="lg:hidden">
+          <div tabIndex={0} role="button" className="md:hidden lg:hidden">
             <img src={logo} className="h-10" alt="" />
           </div>
           <ul
