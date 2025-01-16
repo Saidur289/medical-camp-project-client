@@ -3,9 +3,15 @@ import DeleteModal from "../../../components/Modal/DeleteModal";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import PaymentModal from "../../../components/Modal/PaymentModal";
+import FeedBackModal from "../../../components/Modal/FeedBackModal";
 
 
 const ParticipantRow = ({camp, refetch}) => {
+  // feedback modal function 
+  let [isOpens, setIsOpens] = useState(false)
+  const closeModals = () => {
+   setIsOpens(false)
+}
     const axiosSecure = useAxiosSecure()
   const  {campName, campFees, participant, campId, paymentStatus, confirmStatus, _id} = camp || {}
     let [isOpen, setIsOpen] = useState(false)
@@ -28,6 +34,7 @@ const ParticipantRow = ({camp, refetch}) => {
   }
   }
     return (
+      <>
         <tr>
         <td className='px-5 pb-5 border-b border-gray-200 bg-white text-sm'>
          {campName}
@@ -56,13 +63,15 @@ const ParticipantRow = ({camp, refetch}) => {
           </button>
         <PaymentModal camp = {camp} refetch = {refetch} campFees = {campFees} isOpen={isPayment} closeModal={paymentClose}></PaymentModal>
           <DeleteModal handleDelete={handleDelete}  isOpen={isOpen} closeModal={closeModal} />
+          <FeedBackModal campName = {campName} closeModal = {closeModals} isOpen = {isOpens}></FeedBackModal>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <p className='text-gray-900 whitespace-no-wrap'>status</p>
+          <p onClick={() => setIsOpens(true)} className='text-gray-900 whitespace-no-wrap'>{paymentStatus === 'Paid'? 'Feedback': 'N/A'}</p>
         </td>
   
-      
+       
       </tr>
+      </>
     );
 };
 

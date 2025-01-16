@@ -116,7 +116,7 @@ const AddCamp = () => {
             <textarea
               {...register("description", { required: true })}
               className="textarea textarea-primary"
-              placeholder="Recipe Details"
+              placeholder="Description"
             ></textarea>
           </div>
           <div className="form-control w-full">

@@ -2,8 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ParticipantRow from "../TableRows/ParticipantRow";
+import { useState } from "react";
+
 
 const MyRegisterCamp = () => {
+   
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const {
@@ -67,13 +70,16 @@ const MyRegisterCamp = () => {
                     >
                       Action
                     </th>
-                    <th
+                    <th 
+                     
                       scope="col"
                       className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                     >
-                      FeedBack
+                      <button></button>
+                      
                     </th>
                   </tr>
+                  
                 </thead>
                 <tbody>
                   {camps.map((camp) => (
@@ -83,6 +89,7 @@ const MyRegisterCamp = () => {
                       refetch={refetch}
                     ></ParticipantRow>
                   ))}
+                 
                 </tbody>
               </table>
             </div>
