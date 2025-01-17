@@ -12,9 +12,10 @@ import useAdmin from "../hooks/useAdmin";
 import { useAuth } from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import Loading from "../components/shared/Loading/Loading";
 
 const Dashboard = () => {
-  const [isAdmin] = useAdmin();
+  const [isAdmin, isLoading] = useAdmin();
   const { user, handleSignOut } = useAuth();
   const navigate = useNavigate();
   const handleLogOut = () => {
@@ -23,6 +24,7 @@ const Dashboard = () => {
       navigate("/");
     });
   };
+  if(isLoading) return <Loading></Loading>
   return (
     <>
     <Helmet>

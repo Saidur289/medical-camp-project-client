@@ -10,8 +10,10 @@ import { useAuth } from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const JointCampModal = ({ closeModal, isOpen, camp, refetch }) => {
     const axiosSecure = useAxiosSecure()
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const {user} = useAuth()
   const {
@@ -32,11 +34,13 @@ const JointCampModal = ({ closeModal, isOpen, camp, refetch }) => {
     const age = form.age.value 
     const phone = form.phone.value 
     const contact = form.contact.value 
+    const details = {image: user?.photoURL, gender, age, phone,contact}
     const participant = {name:user?.displayName, email: user?.email, image: user?.photoURL}
-    const participantInfo = {campName, campFees,  gender, age, phone, contact, participant, campId: _id, paymentStatus: 'Unpaid', confirmStatus: 'Pending'}
+    const participantInfo = {campName, campFees, participant, campId: _id, paymentStatus: 'Unpaid', confirmStatus: 'Pending'}
     // console.log(participantInfo);
     await axiosSecure.post('/participants', participantInfo)
     await axiosSecure.patch(`/update-count/${_id}`, {status: 'increase'})
+    await axiosPublic.patch(`/addInfo-users/${user?.email}`, details)
     toast.success('Join Camp Successfully')
     refetch()
     navigate('/dashboard/registerCamp')
