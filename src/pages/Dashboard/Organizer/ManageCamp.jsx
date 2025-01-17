@@ -20,7 +20,7 @@ const ManageCamp = () => {
   const pages = [...Array(numberOfPages).keys()]
   const handlePerPage = e => {
     const val = parseInt(e.target.value)
-    console.log(val);
+    // console.log(val);
     setItemsPerPage(val)
     setCurrentPage(0)
   }
@@ -35,8 +35,8 @@ const ManageCamp = () => {
     }
   }
   // const [count, setCount]= useState(0)
-  console.log(count);
-  console.log(user.email);
+  // console.log(count);
+  // console.log(user.email);
   const axiosSecure = useAxiosSecure();
   const {
     data: camps,

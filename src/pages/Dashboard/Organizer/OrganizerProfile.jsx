@@ -2,17 +2,17 @@ import { Helmet } from "react-helmet-async";
 import { useAuth } from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import UpdateProfileModal from "../../../components/Modal/UpdateProfileModal";
 import { useState } from "react";
+import UpdateProfileModal from "../../../components/Modal/UpdateProfileModal";
 
-const Profile = () => {
-  const [isOpen, setIsOpen] = useState(false)
-    const closeModal = () =>{
-      setIsOpen(false)
-    }
+const OrganizerProfile = () => {
   const { user } = useAuth();
+  const [isOpen, setIsOpen] = useState(false)
+  const closeModal = () =>{
+    setIsOpen(false)
+  }
   const axiosSecure = useAxiosSecure();
-  const { data: profile = {}, refetch } = useQuery({
+  const { data: profile = {} , refetch} = useQuery({
     queryKey: ["/users", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/${user?.email}`);
@@ -29,7 +29,7 @@ const Profile = () => {
         <title>Dashboard | Profile</title>
       </Helmet>
       <div className=" bg-[#eef1fd] flex justify-center items-center h-screen overflow-x-hidden">
-        <div className="bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-full">
+        <div className="bg-white shadow-lg rounded-2xl md:w-full lg:w-full">
           <div className="flex flex-col items-center justify-center p-4 -mt-16">
             <a href="#" className="relative block">
               {details?.image ? (
@@ -93,7 +93,7 @@ const Profile = () => {
                     Update Profile
                   </button>
                 </div>
-                <UpdateProfileModal closeModal={closeModal} profile = {profile} refetch = {refetch} isOpen={isOpen}></UpdateProfileModal>
+                <UpdateProfileModal closeModal={closeModal} refetch = {refetch}  isOpen={isOpen} profile={profile}></UpdateProfileModal>
               </div>
             </div>
           </div>
@@ -103,4 +103,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default OrganizerProfile;

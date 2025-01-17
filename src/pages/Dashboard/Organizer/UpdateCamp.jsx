@@ -39,12 +39,12 @@ const UpdateCamp = () => {
   } = useForm();
   const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     if (data?.datetime) {
       const newObject = new Date(data.datetime);
-      console.log("Date Object:", newObject);
+      
     } else {
-      console.error("Datetime is undefined");
+      toast.error("Datetime is undefined");
     }
 
     // const newObject = new Date(data?.datetime)
@@ -65,16 +65,16 @@ const UpdateCamp = () => {
         image: res.data.data.display_url,
         location: data?.location,
         dateTime: new Date(data.datetime),
-        participantCount: 0,
+        // participantCount: 0,
         organizer: user?.email,
       };
-      console.table({ campItem });
-      console.log(res.data.data.display_url);
-      const campRes = await axiosSecure.put(`/update-camp/${id}`, campItem);
+      // console.log(res.data.data.display_url);
+      const campRes = await axiosSecure.patch(`/update-camp/${id}`, campItem);
       if (campRes.data.modifiedCount > 0) {
         reset();
         toast.success("Camp Updated Successfully ");
         navigate("/dashboard/manageCamp");
+        refetch()
       }
     }
     // console.log(res.data);
@@ -136,6 +136,7 @@ const UpdateCamp = () => {
                 </div>
                 <input
                   type="text"
+                  defaultValue={location}
                   placeholder="Location"
                   {...register("location", { required: true })}
                   className="input input-bordered w-full "
@@ -175,7 +176,7 @@ const UpdateCamp = () => {
 
             <div className="form-control w-full my-6">
               <input
-                defaultValue={image}
+               
                 type="file"
                 {...register("image", { required: true })}
                 className="file-input w-full "

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Slide = ({image, text}) => {
@@ -9,7 +10,7 @@ const Slide = ({image, text}) => {
                     {text}
                 </h1>
                 <br />
-                <button className="bg-primary text-white px-5 py-3 rounded-md capitalize transition-colors duration-300">All Campaigns</button>
+              <Link to = '/availableCamp'>  <button className="bg-primary text-white px-5 py-3 rounded-md capitalize transition-colors duration-300">All Campaigns</button></Link>
 
             </div>
 

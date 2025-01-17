@@ -13,8 +13,8 @@ import useFeedback from "../../hooks/useFeedback";
 const  Sliders = () => {
     const [slideData] = useFeedback()
     return (
-      <div  className="container mx-auto px-5 py-20 bg-secondary ">
-        <h1 className="text-black font-bold text-3xl text-center pb-5">Customer Review</h1>
+      <div  className="container mx-auto px-5 py-10 bg-secondary ">
+        <h1 className="text-black text-3xl text-center pb-5">Customer Review</h1>
         <Swiper
           slidesPerView={3}
           spaceBetween={50}

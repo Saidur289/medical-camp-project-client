@@ -47,7 +47,7 @@ const CampDetails = () => {
         {/* Right: Details */}
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-3">Campaigns Name:  {campName}</h2>
-          <h2 className="text-xl mb-3">HealthCare Profession: {professional}</h2>
+          <h2 className="text-normal mb-3">HealthCare Profession: {professional}</h2>
           <h2 className="text-normal  mb-3">Location: {location}</h2>
   
           <div className="flex items-center mb-2">
@@ -65,7 +65,7 @@ const CampDetails = () => {
   
           <div className="mb-4">
           <div className="divider"></div>
-            <p className="text-gray-700">
+            <p className="text-gray-700 py-3">
                
             {description}
             </p>

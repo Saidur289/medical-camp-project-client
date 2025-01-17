@@ -8,32 +8,34 @@ import { useState } from "react";
 
 const ManageRegisterCamp = () => {
   const axiosSecure = useAxiosSecure();
-  const [filter, setFilter] = useState('')
-  const [count] = useParticipantCount()
-   const [itemsPerPage, setItemsPerPage] = useState(10)
-    const [currentPage, setCurrentPage] = useState(0)
-    const numberOfPages = Math.ceil(count/itemsPerPage)
-    const pages = [...Array(numberOfPages).keys()]
-    const handlePerPage = e => {
-      const val = parseInt(e.target.value)
-      console.log(val);
-      setItemsPerPage(val)
-      setCurrentPage(0)
+  const [filter, setFilter] = useState("");
+  const [count] = useParticipantCount();
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(0);
+  const numberOfPages = Math.ceil(count / itemsPerPage);
+  const pages = [...Array(numberOfPages).keys()];
+  const handlePerPage = (e) => {
+    const val = parseInt(e.target.value);
+    console.log(val);
+    setItemsPerPage(val);
+    setCurrentPage(0);
+  };
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
     }
-    const handlePrevPage = () => {
-      if(currentPage>0){
-        setCurrentPage(currentPage - 1)
-      }
+  };
+  const handleNextPage = () => {
+    if (currentPage < pages.length - 1) {
+      setCurrentPage(currentPage + 1);
     }
-    const handleNextPage = () => {
-      if(currentPage< pages.length - 1){
-        setCurrentPage(currentPage + 1)
-      }
-    }
+  };
   const { data: participants = [], refetch } = useQuery({
     queryKey: ["all-participant", currentPage, itemsPerPage, filter],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/all-participant?page=${currentPage}&size=${itemsPerPage}&filter=${filter}`);
+      const res = await axiosSecure.get(
+        `/all-participant?page=${currentPage}&size=${itemsPerPage}&filter=${filter}`
+      );
       console.log(res.data);
       return res.data;
     },
@@ -84,16 +86,22 @@ const ManageRegisterCamp = () => {
   };
   return (
     <>
-     <Helmet>
-          <title>Dashboard | Register Camp</title>
-        </Helmet>
+      <Helmet>
+        <title>Dashboard | Register Camp</title>
+      </Helmet>
       <div className="bg-[#eef1fd] md:min-h-screen">
         <h1 className="text-3xl text-primary py-3 text-center">
           Manage Your Participant
         </h1>
         <div className="px-5">
           <label className="input input-bordered flex items-center gap-2">
-            <input type="text" value={filter} onChange={(e) => setFilter(e.target.value)} className="grow"  placeholder= 'Search By Camp Name ' />
+            <input
+              type="text"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              className="grow"
+              placeholder="Search By Camp Name "
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -125,7 +133,9 @@ const ManageRegisterCamp = () => {
               {/* row 1 */}
               {participants.length === 0 ? (
                 <>
-                  <tr>You have no data</tr>
+                  <tr>
+                    <td>You have no data</td>
+                  </tr>
                 </>
               ) : (
                 participants.map((participant, index) => (
@@ -173,17 +183,41 @@ const ManageRegisterCamp = () => {
             </tbody>
           </table>
           <div className="mb-10 mt-5 text-center">
-           <button className="bg-primary text-white btn btn-sm" onClick={handlePrevPage}>Prev</button>
-            {
-              pages.map((page, index)=> <button onClick={() => setCurrentPage(page)} className={currentPage === page? 'bg-myAccent text-primary btn mr-2 btn-sm': 'btn mr-2 btn-sm'} key={index}>{page}</button>)
-            }
-            <button className="bg-primary text-white btn btn-sm" onClick={handleNextPage}>Next</button>
-             <select className="select-bordered btn btn-sm" value={itemsPerPage} onChange={handlePerPage}>
+            <button
+              className="bg-primary text-white btn btn-sm"
+              onClick={handlePrevPage}
+            >
+              Prev
+            </button>
+            {pages.map((page, index) => (
+              <button
+                onClick={() => setCurrentPage(page)}
+                className={
+                  currentPage === page
+                    ? "bg-myAccent text-primary btn mr-2 btn-sm"
+                    : "btn mr-2 btn-sm"
+                }
+                key={index}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              className="bg-primary text-white btn btn-sm"
+              onClick={handleNextPage}
+            >
+              Next
+            </button>
+            <select
+              className="select-bordered btn btn-sm"
+              value={itemsPerPage}
+              onChange={handlePerPage}
+            >
               <option value="10">10</option>
               <option value="5">5</option>
               <option value="3">3</option>
-             </select>
-           </div>
+            </select>
+          </div>
         </div>
       </div>
     </>
