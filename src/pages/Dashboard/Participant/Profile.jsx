@@ -28,10 +28,10 @@ const Profile = () => {
       <Helmet>
         <title>Dashboard | Profile</title>
       </Helmet>
-      <div className=" bg-[#eef1fd] flex justify-center items-center h-screen overflow-x-hidden">
-        <div className="bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-full">
-          <div className="flex flex-col items-center justify-center p-4 -mt-16">
-            <a href="#" className="relative block">
+      <div className=" bg-[#eef1fd] flex justify-center items-center h-screen overflow-hidden">
+        <div className="bg-white shadow-lg rounded-2xl ">
+          <div className="flex flex-col items-center justify-center p-4 mt-5 mb-5">
+            <a href="#" className="relative block mt-2">
               {details?.image ? (
                 <img
                   alt="profile"

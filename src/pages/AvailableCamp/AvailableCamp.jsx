@@ -10,10 +10,9 @@ const AvailableCamp = () => {
   const [view, setView]= useState(false)
   const [camps, isLoading] = useCamps(name, filter, sort);
   if(isLoading) return <Loading></Loading>
-  console.log(view);
   return (
     <div className="bg-[#eef1fd] py-10 overflow-x-hidden">
-      <div className="pb-10 flex items-center justify-evenly">
+      <div className="pb-5 text-center space-y-1 justify-center items-center md:pb-10 md:flex md:items-center md:justify-evenly">
         {/* search bar */}
         <div>
           <label className="input input-bordered flex items-center gap-2">
@@ -51,8 +50,8 @@ const AvailableCamp = () => {
           </label>
         </div>
         {/* sort option start here */}
-        <div className="dropdown dropdown-bottom">
-          <div tabIndex={0} role="button" className="px-5 py-3 rounded-md text-white bg-primary">
+        <div className="dropdown dropdown-bottom w-full sm:w-auto ">
+          <div tabIndex={0} role="button" className=" px-5 py-3 rounded-md text-white bg-primary">
             Sort By Types
           </div>
           <ul
@@ -72,7 +71,7 @@ const AvailableCamp = () => {
         </div>
         {/* change view button */}
         <div>
-            <button onClick={()=> setView(!view)} className="px-5 py-3 rounded-md bg-primary text-white">Change View</button>
+            <button onClick={()=> setView(!view)} className=" w-full sm:w-auto px-5 py-3 rounded-md bg-primary text-white">Change View</button>
         </div>
       </div>
       <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 ${view && 'lg:grid-cols-2 gap-4'}`}>

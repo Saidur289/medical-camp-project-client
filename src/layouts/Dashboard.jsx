@@ -31,7 +31,7 @@ const Dashboard = () => {
       <title>DashBoard</title>
     </Helmet>
       <div className="md:flex">
-        <div className="md:w-64 min-h-screen bg-secondary text-black">
+        <div className="md:w-64 md:min-h-screen bg-secondary text-black">
           <ul className="menu p-4">
             {isAdmin ? (
               <>
