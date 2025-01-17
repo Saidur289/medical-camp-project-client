@@ -24,7 +24,7 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
     const updateUser = (updatedData) => {
-        setLoading(true)
+        // setLoading(true)
         return updateProfile(auth.currentUser, updatedData)
     }
     const handleLoginGoogle = () => {

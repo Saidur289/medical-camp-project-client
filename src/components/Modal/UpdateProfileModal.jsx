@@ -5,16 +5,17 @@ import {
     DialogPanel,
     DialogTitle,
   } from "@headlessui/react";
-  import { Fragment } from "react";
+  import { Fragment, useState } from "react";
   import { useAuth } from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 const UpdateProfileModal = ({closeModal, isOpen, profile,  refetch}) => {
+  const [loading, setLoading] = useState(false)
     const { details, name, email, role } = profile || {};
     const axiosSecure = useAxiosSecure()
-    const {user} = useAuth()
+    const {user, updateUser} = useAuth()
     const handleSubmit = async(e) => {
-    
+        setLoading(true)
         try{
          e.preventDefault()
         
@@ -25,18 +26,33 @@ const UpdateProfileModal = ({closeModal, isOpen, profile,  refetch}) => {
          const contact = form.contact.value 
          const imageUrl = form.image.value
          const details = {image: imageUrl, gender, age, phone,contact}
-         await axiosSecure.patch(`/update-profile/${user?.email}`, details)
-         toast.success('updated profile Successfully')
-         refetch()
-      
-     
+         const updatedData = {
+          displayName: name,
+          photoURL: imageUrl,
+        }
+         
+        const {data} = await axiosSecure.patch(`/update-profile/${user?.email}`, details) 
+        console.log(data);
+          updateUser(updatedData)
+          .then(() => {
+            console.log( 'kere kemon');
+            toast.success('updated profile Successfully')
+       
+            refetch()
+          })
+        
+         
+        
+        
      
         }
         catch(error){
          toast.error(error.massage)
         }
         finally{
+         setLoading(false)
          closeModal()
+         
         }
        }
   return (

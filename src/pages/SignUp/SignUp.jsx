@@ -46,7 +46,7 @@ const SignUp = () => {
   };
   return (
     <>
-      <div className="bg-secondary">
+      <div className="bg-blue-400">
         <div className="hero-content flex-col">
        
           <div className="card bg-base-100 w-full max-w-lg shadow-2xl">

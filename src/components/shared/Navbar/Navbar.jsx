@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="md:hidden lg:hidden">
-            <img src={logo} className="h-10" alt="" />
+            <img src={logo} className="w-8" alt="" />
           </div>
           <ul
             tabIndex={0}

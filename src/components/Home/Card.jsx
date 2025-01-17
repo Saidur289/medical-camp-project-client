@@ -1,11 +1,13 @@
 import { format } from "date-fns";
+import { Fade } from "react-awesome-reveal";
 import { FaCalendar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Card = ({camp}) => {
     const {description, dateTime, campName,campFees, professional, image, location, participantCount, _id} = camp || {}
   return (
-    <div className="card bg-base-100 shadow-xl hover:scale-105 overflow-x-hidden">
+   <Fade cascade>
+     <div className="card bg-base-100 shadow-xl hover:scale-105 overflow-x-hidden">
       <figure>
         <img
           src={image}
@@ -20,7 +22,7 @@ const Card = ({camp}) => {
         <p>{description.substring(0, 50)}..</p>
         <p>Camp Fees: {campFees}</p>
         <p>Location: {location}</p>
-        {/* <p>Healthcare Professional: {professional}</p> */}
+        <p>Healthcare Professional: {professional}</p>
         <p>Total Participants: {participantCount}</p>
        </div>
         <div className="mt-auto">
@@ -28,6 +30,8 @@ const Card = ({camp}) => {
         </div>
       </div>
     </div>
+
+   </Fade>
   );
 };
 
