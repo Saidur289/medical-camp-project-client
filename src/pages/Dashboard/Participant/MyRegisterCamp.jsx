@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ParticipantRow from "../TableRows/ParticipantRow";
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 const MyRegisterCamp = () => {
