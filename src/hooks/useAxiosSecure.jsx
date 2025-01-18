@@ -4,7 +4,7 @@ import { useAuth } from "./useAuth";
 import { useEffect } from "react";
 
  const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://my-medical-server.vercel.app',
     withCredentials: true
  })
 const useAxiosSecure = () => {
@@ -14,7 +14,7 @@ const useAxiosSecure = () => {
     axiosSecure.interceptors.response.use(res => {
       return res 
     }, async error => {
-      console.log('Error caught from insterceptors');
+      // console.log('Error caught from insterceptors');
       if(error.res?.status === 401 || error.response?.status === 403){
         // logout
       await  handleSignOut()

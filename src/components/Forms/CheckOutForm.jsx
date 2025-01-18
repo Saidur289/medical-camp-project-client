@@ -12,7 +12,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 // eslint-disable-next-line react/prop-types
 const CheckoutForm = ({ refetch, closeModal, campFees, camp }) => {
     const { _id,  ...newData } = camp;
-    console.log(newData);
+    // console.log(newData);
   const [clientSecret, setClientSecret] = useState("");
   const navigate = useNavigate()
   const axiosSecure = useAxiosSecure();
@@ -20,7 +20,7 @@ const CheckoutForm = ({ refetch, closeModal, campFees, camp }) => {
     getPaymentIntent();
   }, [campFees]);
   const getPaymentIntent = async () => {
-    console.log(campFees);
+    // console.log(campFees);
    if(campFees){
     try {
      
@@ -109,7 +109,7 @@ const CheckoutForm = ({ refetch, closeModal, campFees, camp }) => {
       }
     }
   };
-  console.log(clientSecret);
+  // console.log(clientSecret);
 
   return (
     <form onSubmit={handleSubmit}>

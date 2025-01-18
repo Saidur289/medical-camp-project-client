@@ -21,7 +21,7 @@ const FeedBackModal = ({closeModal, isOpen, campName}) => {
         const profileImage = user?.photoURL 
         const userName = user?.displayName 
         const data = {rating, reviewText, profileImage, userName}
-        console.log(data);
+        // console.log(data);
         await axiosSecure.post('/feedback', data)
         toast.success('Feedback Added Successfully')
 

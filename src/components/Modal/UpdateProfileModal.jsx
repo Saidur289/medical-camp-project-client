@@ -32,10 +32,10 @@ const UpdateProfileModal = ({closeModal, isOpen, profile,  refetch}) => {
         }
          
         const {data} = await axiosSecure.patch(`/update-profile/${user?.email}`, details) 
-        console.log(data);
+        // console.log(data);
           updateUser(updatedData)
           .then(() => {
-            console.log( 'kere kemon');
+            // console.log( 'kere kemon');
             toast.success('updated profile Successfully')
        
             refetch()

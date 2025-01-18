@@ -22,7 +22,7 @@ const Profile = () => {
   });
 
   const { details, name, email, role } = profile || {};
-  console.log(profile.details);
+  // console.log(profile.details);
   return (
     <>
       <Helmet>

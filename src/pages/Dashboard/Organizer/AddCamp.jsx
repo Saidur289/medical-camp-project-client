@@ -24,7 +24,7 @@ const AddCamp = () => {
     console.log(data);
     if (data?.datetime) {
       const newObject = new Date(data.datetime);
-      console.log("Date Object:", newObject);
+      // console.log("Date Object:", newObject);
     } else {
       console.error("Datetime is undefined");
     }
