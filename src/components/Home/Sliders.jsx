@@ -16,8 +16,10 @@ const  Sliders = () => {
       <div  className="container mx-auto px-5 py-10 bg-secondary ">
         <h1 className="text-black text-3xl text-center pb-5">Customer Review</h1>
         <Swiper
-          slidesPerView={3}
-          spaceBetween={50}
+         loop={true}
+         slidesPerView={3}
+        //  slidesPerGroup={3}
+         spaceBetween={20}
           // effect="fade"
           // fadeEffect = { {crossFade: true} }
           breakpoints={{
@@ -44,7 +46,7 @@ const  Sliders = () => {
               }
   
           }}
-          loop={true}
+        
           autoplay= {{
               delay:5000,
               disableOnInteraction:false
