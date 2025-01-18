@@ -123,7 +123,7 @@ const JointCampModal = ({ closeModal, isOpen, camp, refetch }) => {
                       name="phone"
                       id="quantity"
                       type="number"
-                      placeholder="Available quantity"
+                      placeholder="Phone Number"
                       required
                     />
                   </div>
