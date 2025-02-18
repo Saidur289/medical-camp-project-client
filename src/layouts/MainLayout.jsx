@@ -6,7 +6,9 @@ import Footer from "../components/shared/Footer/Footer";
 const MainLayout = () => {
     return (
         <div className="container mx-auto h-screen flex flex-col">
-            <Navbar></Navbar>
+           <div className="mb-[70px]">
+           <Navbar></Navbar>
+           </div>
             <div className="flex-grow">
         <Outlet></Outlet>
         </div> 

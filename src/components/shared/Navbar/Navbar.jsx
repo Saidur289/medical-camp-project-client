@@ -28,7 +28,7 @@ const Navbar = () => {
             </li>
     </>
   return (
-   <div className="bg-[#eef1fd] container mx-auto border-b-2">
+   <div className="bg-[#eef1fd] fixed top-0 px-2  container mx-auto border-b-2 z-50 ">
      <div className="navbar ">
       <div className="navbar-start">
         <div className="dropdown">

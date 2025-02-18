@@ -11,7 +11,7 @@ import Slide from "./Slide";
 
 const Carousel = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto ">
       <Swiper  spaceBetween={30}
         centeredSlides={true}
         loop={true}
