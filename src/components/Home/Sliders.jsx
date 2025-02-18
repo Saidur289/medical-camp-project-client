@@ -78,3 +78,4 @@ const  Sliders = () => {
     );
   }
   export default Sliders
+  

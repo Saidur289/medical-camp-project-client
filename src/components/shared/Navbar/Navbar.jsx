@@ -23,6 +23,9 @@ const Navbar = () => {
             <li className="uppercase">
               <NavLink to = '/availableCamp'>Available Camp</NavLink>
             </li>
+            <li>
+              <NavLink to='/dashboard/registerCamp'>Dashboard</NavLink>
+            </li>
     </>
   return (
    <div className="bg-[#eef1fd] container mx-auto border-b-2">
@@ -46,6 +49,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
         {links}
+       
         </ul>
       </div>
       <div className="navbar-end z-10">

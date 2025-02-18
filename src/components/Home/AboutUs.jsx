@@ -12,7 +12,7 @@ const AboutUs = () => {
     });
   }, []);
   return (
-    <div data-aos="fade-up" data-aos-anchor-placement="top-center">
+    <div data-aos="fade-up" data-aos-anchor-placement="top-center" id="about">
       <div className=" md:text-left md:flex md:items-center border-2">
         <div className=" md:w-1/2 py-10">
           {/* content  */}
