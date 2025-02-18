@@ -5,6 +5,7 @@ import {
   FaRegistered,
   FaStackpath,
   FaUser,
+  FaVideoSlash,
 } from "react-icons/fa";
 import { FaColonSign, FaGrav, FaKitMedical } from "react-icons/fa6";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
@@ -56,6 +57,10 @@ const Dashboard = () => {
                   <NavLink to="/dashboard/manageRegisterCamp">
                     <FaStackpath className="mr-2 text-myAccent" />
                     Manage Register Camps
+                  </NavLink>
+                  <NavLink to="/dashboard/overview">
+                    <FaVideoSlash className="mr-2 text-myAccent" />
+                    Overview
                   </NavLink>
                 </li>
               </>

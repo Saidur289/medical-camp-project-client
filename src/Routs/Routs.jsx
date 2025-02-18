@@ -22,6 +22,7 @@ import Analytics from "../pages/Dashboard/Participant/Analytics";
 import ErrorPage from "../components/shared/ErrorPage/ErrorPage";
 import AvailableCamp from "../pages/AvailableCamp/AvailableCamp";
 import OrganizerProfile from "../pages/Dashboard/Organizer/OrganizerProfile";
+import Overview from "../pages/Dashboard/Organizer/Overview";
   
   const router = createBrowserRouter([
     {
@@ -91,6 +92,10 @@ import OrganizerProfile from "../pages/Dashboard/Organizer/OrganizerProfile";
         {
           path: 'adminProfile',
           element: <AdminRoute><OrganizerProfile></OrganizerProfile></AdminRoute>
+        },
+        {
+          path: 'overview',
+          element: <AdminRoute><Overview></Overview></AdminRoute>
         }
       ]
     }
