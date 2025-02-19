@@ -21,7 +21,7 @@ const Overview = () => {
         }
     })
     if(isLoading) return <Loading></Loading>
-    console.log(stats);
+    // console.log(stats);
   return (
     <div className="bg-[#eef1fd] md:min-h-screen md:flex flex-col justify-center items-center">
       <div className="stats shadow">

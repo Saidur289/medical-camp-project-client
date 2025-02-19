@@ -62,17 +62,17 @@ const Contact = () => {
                 <form ref={form} onSubmit={sendEmail} className="space-y-4">
                     <div>
                         <label htmlFor="name" className="block mb-2">Your Name</label>
-                        <input type="text" name="user_name" placeholder="Your Name" className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-green-400" />
+                        <input type="text" name="user_name" placeholder="Your Name" className="w-full p-2 rounded text-white bg-gray-700 border border-gray-600 focus:outline-none focus:border-green-400" />
                     </div>
                     <div>
                         <label htmlFor="email" name="user_email" className="block mb-2">Email</label>
-                        <input placeholder="Your Email" type="email" className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-green-400" />
+                        <input placeholder="Your Email" type="email" className="w-full p-2 text-white rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-green-400" />
                     </div>
                     <div>
                         <label htmlFor="message" className="block mb-2">Message</label>
-                        <textarea rows={'5'} name="message"  placeholder="Enter Your Message" type="email" className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-green-400" />
+                        <textarea rows={'5'} name="message"  placeholder="Enter Your Message" type="email" className="w-full p-2 rounded bg-gray-700 border text-white border-gray-600 focus:outline-none focus:border-green-400" />
                     </div>
-                    <button className="bg-primary text-white px-5 py-3 rounded-md capitalize transition-colors duration-300 w-full">Send</button>
+                    <button className="bg-primary text-white px-5 py-3  rounded-md capitalize transition-colors duration-300 w-full">Send</button>
                 </form>
                </div>
                </div>
