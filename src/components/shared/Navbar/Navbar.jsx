@@ -24,7 +24,7 @@ const Navbar = () => {
               <NavLink to = '/availableCamp'>Available Camp</NavLink>
             </li>
             <li>
-              <NavLink to='/dashboard/registerCamp'>Dashboard</NavLink>
+              <NavLink to='/dashboard/manageRegisterCamp'>Dashboard</NavLink>
             </li>
     </>
   return (

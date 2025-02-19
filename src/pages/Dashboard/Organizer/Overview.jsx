@@ -43,12 +43,12 @@ const Overview = () => {
         
         </div>
       </div>
-      <div className="md:w-1/2">
+      <div className="md:w-1/2 mt-5 z-50">
                 <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={stats}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="totalUsers" />
-                    <YAxis />
+                    <XAxis />
+                    <YAxis  dataKey="totalUsers"fill="#91ee4c" />
                     <Tooltip />
                     <Legend />
                     <Bar dataKey="totalParticipant" fill="#91ee4c" />

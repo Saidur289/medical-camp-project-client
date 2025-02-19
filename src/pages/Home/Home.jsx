@@ -3,6 +3,8 @@ import AboutUs from "../../components/Home/AboutUs";
 import Camps from "../../components/Home/Camps";
 import Carousel from "../../components/Home/Carousel";
 import Sliders from "../../components/Home/Sliders";
+import ChooseUs from "../../components/Home/ChooseUs";
+import Contact from "../../components/Home/Contact";
 
 
 const Home = () => {
@@ -14,7 +16,10 @@ const Home = () => {
             <Carousel></Carousel>
             <Camps></Camps>
             <Sliders></Sliders>
+            <ChooseUs></ChooseUs>
             <AboutUs></AboutUs>
+            <Contact></Contact>
+            
         </div>
     );
 };
