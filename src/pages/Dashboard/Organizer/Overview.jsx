@@ -43,6 +43,7 @@ const Overview = () => {
           <div className="stat-value">{stats?.totalCamps}</div>
         </div>
       </div>
+      {/* chart  */}
       <div className="md:w-1/2 mt-5 z-50">
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={stats}>
