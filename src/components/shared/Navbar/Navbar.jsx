@@ -23,9 +23,14 @@ const Navbar = () => {
             <li className="uppercase">
               <NavLink to = '/availableCamp'>Available Camp</NavLink>
             </li>
-            <li>
-              <NavLink to='/dashboard/manageRegisterCamp'>Dashboard</NavLink>
+            {user && isAdmin && <li>
+              <NavLink to='/dashboard/manageCamp'>Dashboard</NavLink>
+            </li> }
+            {
+              user && !isAdmin && <li>
+              <NavLink to='/dashboard/registerCamp'>Dashboard</NavLink>
             </li>
+            }
     </>
   return (
    <div className="bg-[#eef1fd] fixed top-0 px-2  container mx-auto border-b-2 z-50 ">
