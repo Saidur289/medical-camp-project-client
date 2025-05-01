@@ -23,6 +23,10 @@ const Navbar = () => {
             <li className="uppercase">
               <NavLink to = '/availableCamp'>Available Camp</NavLink>
             </li>
+            <li className="uppercase">
+              <NavLink to = '/settingsPage'>Settings Page</NavLink>
+            </li>
+
             {user && isAdmin && <li>
               <NavLink to='/dashboard/manageCamp'>Dashboard</NavLink>
             </li> }

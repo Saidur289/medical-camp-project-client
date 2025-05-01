@@ -23,6 +23,7 @@ import ErrorPage from "../components/shared/ErrorPage/ErrorPage";
 import AvailableCamp from "../pages/AvailableCamp/AvailableCamp";
 import OrganizerProfile from "../pages/Dashboard/Organizer/OrganizerProfile";
 import Overview from "../pages/Dashboard/Organizer/Overview";
+import SettingsPage from "../pages/SettingsPage/SettingsPage";
   
   const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ import Overview from "../pages/Dashboard/Organizer/Overview";
         {
           path: 'availableCamp',
           element: <AvailableCamp></AvailableCamp>,
+        },
+        {
+          path: 'settingsPage',
+          element: <SettingsPage/>
         }
       ]
     },
