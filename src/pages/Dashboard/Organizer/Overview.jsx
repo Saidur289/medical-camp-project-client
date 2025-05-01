@@ -45,16 +45,16 @@ const Overview = () => {
       </div>
       {/* chart  */}
       <div className="md:w-1/2 mt-5 z-50">
-        <ResponsiveContainer width="100%" height={250}>
-          <BarChart data={stats}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis />
-            <YAxis dataKey="totalUsers" fill="#91ee4c" />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="totalParticipant" fill="#91ee4c" />
-          </BarChart>
-        </ResponsiveContainer>
+      <ResponsiveContainer width="100%" height={250}>
+            <BarChart data={stats}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="totalCamps" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="totalParticipant" fill="#91ee4c" />
+            </BarChart>
+          </ResponsiveContainer>
       </div>
     </div>
   );
