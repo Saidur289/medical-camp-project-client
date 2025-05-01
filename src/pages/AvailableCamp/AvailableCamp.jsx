@@ -16,7 +16,7 @@ const AvailableCamp = () => {
     <Helmet>
       <title>Available Camp</title>
     </Helmet>
-      <div className="bg-[#eef1fd] py-10 overflow-x-hidden">
+      <div className="bg-white py-10 overflow-x-hidden">
         <div className="pb-5 text-center space-y-1 justify-center items-center md:pb-10 md:flex md:items-center md:justify-evenly">
           {/* search bar */}
           <div>
