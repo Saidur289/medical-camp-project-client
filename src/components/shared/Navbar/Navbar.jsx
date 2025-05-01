@@ -15,6 +15,7 @@ const Navbar = () => {
       toast.success('LogOut Successfully')
     })
   }
+  // links for routing 
     const links = <>
      <li className="uppercase">
               <NavLink to='/'>Home</NavLink>
