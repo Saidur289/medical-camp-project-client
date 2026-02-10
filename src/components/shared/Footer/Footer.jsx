@@ -1,15 +1,15 @@
-import React from "react";
+
 import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-secondary text-base-content p-10">
+    <footer className="footer p-10 pb-5 m-0 text-green-600">
       <nav>
         <h6 className="footer-title">Services</h6>
         <a className="link link-hover">Branding</a>
         <a className="link link-hover">Design</a>
         <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+
       </nav>
       <nav>
         <h6 className="footer-title">Links</h6>

@@ -5,6 +5,7 @@ import Typewriter from 'typewriter-effect';
 
 const Camps = () => {
   const [camps] = useCamps();
+  // console.log(camps);
   return (
     <div className="bg-[#eef1fd] pb-10 border-b-4">
       <h1 className="text-3xl text-center py-5">

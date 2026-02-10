@@ -20,7 +20,6 @@ const CheckoutForm = ({ refetch, closeModal, campFees, camp }) => {
     getPaymentIntent();
   }, [campFees]);
   const getPaymentIntent = async () => {
-    // console.log(campFees);
    if(campFees){
     try {
      
@@ -29,7 +28,7 @@ const CheckoutForm = ({ refetch, closeModal, campFees, camp }) => {
       });
       setClientSecret(data.clientSecret);
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }  
   
    }

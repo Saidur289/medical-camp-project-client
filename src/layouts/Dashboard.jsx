@@ -58,10 +58,7 @@ const Dashboard = () => {
                     <FaStackpath className="mr-2 text-myAccent" />
                     Manage Register Camps
                   </NavLink>
-                  <NavLink to="/dashboard/overview">
-                    <FaVideoSlash className="mr-2 text-myAccent" />
-                    Overview
-                  </NavLink>
+                 
                 </li>
               </>
             ) : (

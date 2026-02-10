@@ -4,7 +4,8 @@ import { useAuth } from "./useAuth";
 import { useEffect } from "react";
 
  const axiosSecure = axios.create({
-    baseURL: 'https://my-medical-server.vercel.app',
+     baseURL: 'https://my-medical-server-three.vercel.app',
+   
     withCredentials: true
  })
 const useAxiosSecure = () => {

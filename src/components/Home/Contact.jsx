@@ -1,6 +1,7 @@
 import { FaEnvelope, FaMapMarkedAlt, FaPhone } from "react-icons/fa";
 import { useRef } from "react";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Contact = () => {
     const form = useRef();
@@ -28,7 +29,7 @@ const Contact = () => {
               
             },
             (error) => {
-              console.log('FAILED...', error.text); // Log error message
+              toast.error(error) // Log error message
             }
           );
       };

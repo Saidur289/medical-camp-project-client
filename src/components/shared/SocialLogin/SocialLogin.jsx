@@ -31,7 +31,7 @@ const SocialLogin = () => {
     return (
         <div className="">
             <div className="divider"></div>
-           <button onClick={handleGoogle} className="btn w-full  bg-myAccent text-black"><FaGoogle className="mr-2 bg-myAccent text-black"></FaGoogle>Login With Google</button> 
+           <button onClick={handleGoogle} className="btn w-full  bg-myAccent text-green-600"><FaGoogle className="mr-2 bg-myAccent text-black"></FaGoogle>Login With Google</button> 
         </div>
     );
 };
